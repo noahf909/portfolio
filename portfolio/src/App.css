@@ -1,0 +1,197 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Add these styles to ensure the canvas takes up the full viewport */
+canvas {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed !important; /* Keeps the canvas fixed in the viewport */
+  top: 0 !important;
+  left: 0 !important;
+  z-index: -10 !important; /* Places the canvas behind all other content */
+}
+
+/* Optional: Style the container div if needed, though canvas style is usually sufficient */
+#background-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Ensure the container is also behind content */
+}
+
+/* Make sure text is visible on top of the canvas */
+.text-shadow {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-lg {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  scroll-snap-type: y mandatory; /* Enforces vertical snapping */
+  overflow-y: scroll; 
+}
+
+/* Header styles */
+.header-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  width: 100% !important;
+  padding: 1rem 0;
+  background-color: transparent !important;
+  backdrop-filter: blur(2px);
+  will-change: transform, opacity;
+}
+
+/* Center the navigation container */
+.header-nav .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Improve navigation centering */
+.header-nav nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header-nav ul {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center;     /* Center items vertically */
+  padding: 0;
+  margin: 0;
+  max-width: 100%;         /* Allow the ul to take up available space */
+  width: auto;             /* Let the width be determined by content */
+}
+
+/* Fix the nav item spacing */
+.nav-item {
+  position: relative;
+  list-style-type: none !important;
+  /* CHANGED: Replace the extremely large margins with more reasonable ones */
+  margin-left: 5rem !important;  /* Reduced from 5rem */
+  margin-right: 5rem !important; /* Reduced from 7rem */
+}
+
+@media (max-width: 768px) {
+  .nav-item {
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+  }
+}
+
+.nav-item a {
+  color: black !important;
+  font-weight: 400 !important;
+  padding: 0.5rem 0.5rem !important; /* Reduced horizontal padding */
+  display: inline-block !important;
+  cursor: pointer !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.nav-item a:hover {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 
+  Section styling
+  - Ensures sections take up space and are positioned correctly
+  - Defines snap alignment
+*/
+section {
+  min-height: 100vh; 
+  width: 100%;
+  position: relative; /* Needed for z-index stacking */
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start; /* Aligns the top of each section to the snap point */
+  /* scroll-snap-stop: always; */ /* Optional: Makes snapping more aggressive */
+  transform: translateZ(0); /* Hardware acceleration hint */
+}
+
+/* 
+  Content section styling
+  - REMOVED background styles to show Vanta effect fully
+  - z-index ensures content is above the background
+*/
+#content-sections section {
+  /* background-color: rgba(255, 255, 255, 0.7); */ /* REMOVED: Semi-transparent white background */
+  /* backdrop-filter: blur(5px); */ /* REMOVED: Blur effect */
+  position: relative;
+  z-index: 2; /* Keep content above background */
+}
+
+/* Ensure Hero section is also part of the flow and above the background */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; 
+  z-index: 1; /* Above background, below content sections */
+  /* No background-color here means it's transparent, showing the Vanta effect */
+}
+
+/* REMOVED: Mobile snap scrolling adjustment (keep mandatory for consistency) */
+/* @media (max-width: 768px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+} */
